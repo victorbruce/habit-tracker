@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Habit Tracker</title>
-	<link rel="stylesheet" href="./styles/index.css" />
-</head>
-<body>
-	<main>
-		<h1>Hello World!</h1>
-	</main>
-	<script src="./js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <main class="app__container">
+      <nav class="navbar">
+        <a href="#" class="navbar__logo">Habit Tracker</a>
+      </nav>
+      <section>
+        <!-- left side - Habit Form -->
+        <div class="habit">
+          <h1 class="habit__title">Which body part are you working on?</h1>
+          <ul class="habit__list">
+            <li>
+              <button>😂</button>
+            </li>
+            <li><button>😂</button></li>
+            <li><button>😂</button></li>
+            <li><button>😂</button></li>
+          </ul>
+          <form class="habit__form">
+            <label for="notes">Add notes</label>
+            <input type="text" />
+            <button type="submit">Save</button>
+          </form>
+        </div>
+        <!-- right side - Streak Count -->
+        <div class="streak">
+          <p class="streak__icon">🔥</p>
+          <p class="streak__count">9 streak</p>
+        </div>
+      </section>
+      <section>
+        <!-- left side - History -->
+        <div class="history">
+          <h2 class="history__title">History</h2>
+          <div class="history__card">
+            <h3>habit title</h3>
+            <span>status</span>
+            <select>
+              <option value=""></option>
+              <option value="todo">Todo</option>
+              <option value="progress">Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <!-- right side - Insights -->
+        <div class="insights">
+          <h3 class="insights__title">Insights</h3>
+          <ul class="insights__list">
+            <li class="insights__item">todo (2)</li>
+            <li class="insights__item">progress (1)</li>
+            <li class="insights__item">completed (0)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
