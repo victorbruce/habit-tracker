@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-gray: #f1f1f1;
+  --black: #111;
+  --white: #fff;
+
+  --background: var(var(--light-gray));
+  --text-color: var(var(--black));
+  --background-secondary: var(--white);
+}
+
+body {
+  background-color: var(--background);
+	color: var(--text-color);
+}

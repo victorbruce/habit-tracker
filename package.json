@@ -1,0 +1,23 @@
+{
+  "name": "habit-tracker",
+  "version": "1.0.0",
+  "description": "Track, log, and visualize your daily habits",
+  "main": "./js/main.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch"
+  },
+  "type": "module",
+  "keywords": [
+    "daily",
+    "tracker",
+    "habit",
+    "tracker"
+  ],
+  "author": "Victor Bruce",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
