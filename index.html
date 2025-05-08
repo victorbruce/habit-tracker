@@ -4,14 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habit Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
-  <body>
+  <body class="app">
     <main class="app__container">
       <nav class="navbar">
         <a href="#" class="navbar__logo">Habit Tracker</a>
       </nav>
-      <section>
+      <section class="container">
         <!-- left side - Habit Form -->
         <div class="habit">
           <h1 class="habit__title">Which body part are you working on?</h1>
@@ -24,30 +30,47 @@
             <li><button>😂</button></li>
           </ul>
           <form class="habit__form">
-            <label for="notes">Add notes</label>
-            <input type="text" />
+            <div>
+              <label for="notes">Add notes</label>
+              <input type="text" />
+            </div>
             <button type="submit">Save</button>
           </form>
         </div>
         <!-- right side - Streak Count -->
         <div class="streak">
           <p class="streak__icon">🔥</p>
-          <p class="streak__count">9 streak</p>
+          <p class="streak__days">9 days</p>
+          <p class="streak__count">You have a streak going for 9 days</p>
         </div>
       </section>
-      <section>
+
+      <section class="analytics">
         <!-- left side - History -->
         <div class="history">
           <h2 class="history__title">History</h2>
           <div class="history__card">
-            <h3>habit title</h3>
-            <span>status</span>
-            <select>
-              <option value=""></option>
-              <option value="todo">Todo</option>
-              <option value="progress">Progress</option>
-              <option value="completed">Completed</option>
-            </select>
+            <div class="history__card--content">
+              <h3>habit title</h3>
+              <div class="history__card--actions">
+                <span class="status-card">status</span>
+                <button>
+                  <img src="./assets/icons/square-pen.svg" alt="edit" />
+                </button>
+                <button>
+                  <img src="./assets/icons/trash-2.svg" alt="delete" />
+                </button>
+                <button>
+                  <img
+                    src="./assets/icons/ellipsis-vertical.svg"
+                    alt="more actions"
+                  />
+                </button>
+              </div>
+            </div>
+            <div>
+              <span class="status-card">status</span>
+            </div>
           </div>
         </div>
         <!-- right side - Insights -->
