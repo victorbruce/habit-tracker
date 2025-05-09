@@ -1,6 +1,7 @@
 import { deleteHabitById } from "../utils/storage.js";
 import { populateHistory } from "./habitHistory.js";
 import { renderTodoCount } from "./todoInsight.js";
+import { setupDropdown } from "./dropdown.js";
 
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
@@ -92,8 +93,13 @@ export function createHabitCard(habit) {
   deleteBtn.addEventListener("click", () => {
     deleteHabitById(habit.id);
     populateHistory();
-    renderTodoCount()
+    renderTodoCount();
   });
+
+  // Setup dropdown interaction
+  const dropdownButton = habitCard.querySelector(".ellipsis-icon-btn");
+  const dropdownMenu = habitCard.querySelector(".dropdown-menu");
+  setupDropdown(dropdownButton, dropdownMenu);
 
   return habitCard;
 }
