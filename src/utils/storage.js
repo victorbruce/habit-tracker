@@ -1,7 +1,7 @@
-export function saveToStorage(key, value) {
-	localStorage.setItem(key, value);
+export function saveHabits(habits) {
+  localStorage.setItem("habits", JSON.stringify(habits));
 }
 
-export function loadFromStorage(key) {
-	return localStorage.getItem(key);
+export function getHabits() {
+  return JSON.parse(localStorage.getItem("habits")) || [];
 }
