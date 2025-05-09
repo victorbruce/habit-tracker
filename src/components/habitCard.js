@@ -1,3 +1,6 @@
+import { deleteHabitById } from "../utils/storage.js";
+import { populateHistory } from "./habitHistory.js";
+
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
   habitCard.classList.add("history__card");
@@ -30,7 +33,7 @@ export function createHabitCard(habit) {
                       />
                     </svg>
         </button>
-        <button class="trash-icon-btn">
+        <button class="trash-icon-btn" data-id=${habit.id}>
         <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -83,6 +86,12 @@ export function createHabitCard(habit) {
       }</span>
     </div>
 	`;
+
+  const deleteBtn = habitCard.querySelector(".trash-icon-btn");
+  deleteBtn.addEventListener("click", () => {
+    deleteHabitById(habit.id);
+    populateHistory();
+  });
 
   return habitCard;
 }
