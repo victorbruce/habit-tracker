@@ -1,11 +1,33 @@
-import { saveToStorage } from "../utils/storage.js";
+import { getHabits, saveHabits } from "../utils/storage.js";
+import { getSelectedActivity } from "../state/state.js";
 
-export function addHabitForm(formElement, inputElement, storageKey) {
+function generateId() {
+  return Date.now();
+}
+
+export function addHabitForm(formElement, inputElement) {
   formElement.addEventListener("submit", (event) => {
     event.preventDefault(); // prevents page reload
 
-    const value = inputElement.value;
-    saveToStorage(storageKey, value);
-    inputElement.value = "";
+    const activity = getSelectedActivity();
+
+    if (!activity) {
+      alert('Please select an activity first');
+      return;
+    }
+
+    const newHabit = {
+      activity,
+      notes: inputElement.value.trim(),
+      status: 'todo',
+      id: generateId(),
+      date: Date.now()
+    }
+    const habits = getHabits();
+    habits.push(newHabit);
+    saveHabits(habits);
+
+    formElement.reset();
+    alert('Habit saved!');
   });
 }
