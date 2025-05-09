@@ -13,7 +13,6 @@ export function renderCompletedCount() {
 
   const countElement = completedContainer.querySelector("h4");
   if (countElement) {
-		console.log('completed', count)
     countElement.textContent = count;
   }
 }
