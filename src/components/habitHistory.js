@@ -4,7 +4,6 @@ import { createEmptyState } from "./emptyState.js";
 
 export function populateHistory() {
   const habits = getHabits();
-  console.log("my habits", habits);
   const historyContainer = document.querySelector(".history__container");
   if (!historyContainer) return;
 
