@@ -1,22 +1,10 @@
 import { setupDropdown } from "./components/dropdown.js";
+import { addHabitForm } from "./components/addHabitForm.js";
 
-console.log("hello world");
 const dropdownButton = document.getElementById("dropdownButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
-
-setupDropdown(dropdownButton, dropdownMenu);
-
+const noteInputField = document.getElementById("notes");
 const habitForm = document.getElementById("habitForm");
 
-habitForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // prevents page from reloading
-
-  // get input element
-  const input = document.getElementById("notes");
-  const value = input.value;
-
-  localStorage.setItem("habit", value);
-
-  alert("saved: " + value);
-  input.value = "";
-});
+setupDropdown(dropdownButton, dropdownMenu);
+addHabitForm(habitForm, noteInputField, 'habit');
