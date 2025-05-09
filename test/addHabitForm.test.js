@@ -7,6 +7,7 @@ import { addHabitForm } from "../src/components/addHabitForm";
 describe("Adding an Habit and saving to LocalStorage", () => {
   beforeEach(() => {
     document.body.innerHTML = `
+    <div class="habit__container"></div>
 		<form class="habit__form" id="habitForm">
 			<div>
 				<label for="notes">Add notes</label>
