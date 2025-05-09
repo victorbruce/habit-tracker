@@ -5,8 +5,6 @@
 import { addHabitForm } from "../src/components/addHabitForm";
 
 describe("Adding an Habit and saving to LocalStorage", () => {
-  let form, input;
-
   beforeEach(() => {
     document.body.innerHTML = `
 		<form class="habit__form" id="habitForm">
@@ -21,19 +19,24 @@ describe("Adding an Habit and saving to LocalStorage", () => {
 			<button type="submit">Save</button>
 		</form>
 		`;
-
-    // get form
-    form = document.getElementById("habitForm");
-
-    // get input
-    input = document.getElementById("notes");
-    addHabitForm(form, input, "habit");
+    localStorage.clear();
   });
 
-  test("input field has a value", () => {
-    let testValue = "I am good!";
-    input.value = testValue;
+  test("saves a habit to localStorage with selected activity", () => {
+    const mockGetSelectedActivity = () => "Shoulders";
+
+    const form = document.getElementById("habitForm");
+    const input = document.getElementById("notes");
+    input.value = "Test Note";
+
+    addHabitForm(form, input, mockGetSelectedActivity);
     form.dispatchEvent(new Event("submit", { bubbles: true }));
-    expect(localStorage.getItem("habit")).toBe(testValue);
+
+    const saved = JSON.parse(localStorage.getItem("habits"));
+    expect(saved.length).toBe(1);
+    expect(saved[0]).toMatchObject({
+      activity: "Shoulders",
+      notes: "Test Note",
+    });
   });
 });

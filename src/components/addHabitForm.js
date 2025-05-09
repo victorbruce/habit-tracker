@@ -1,11 +1,11 @@
 import { getHabits, saveHabits } from "../utils/storage.js";
-import { getSelectedActivity } from "../state/state.js";
+
 
 function generateId() {
   return Date.now();
 }
 
-export function addHabitForm(formElement, inputElement) {
+export function addHabitForm(formElement, inputElement, getSelectedActivity) {
   formElement.addEventListener("submit", (event) => {
     event.preventDefault(); // prevents page reload
 
