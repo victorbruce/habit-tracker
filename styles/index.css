@@ -345,6 +345,10 @@ body {
   background-color: #f0f0f0;
 }
 
+.selected {
+  background-color: var(--danger);
+}
+
 /* Tablet Mode */
 @media screen and (min-width: 768px) {
   .app {
