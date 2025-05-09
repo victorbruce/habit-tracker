@@ -1,4 +1,3 @@
-import { setupDropdown } from "./components/dropdown.js";
 import { addHabitForm } from "./components/addHabitForm.js";
 import { setupActivitySelection } from "./components/activitySelector.js";
 import { getSelectedActivity } from "./state/state.js";
@@ -9,13 +8,10 @@ import { renderCompletedCount } from "./components/completedinsight.js";
 import { renderStreak } from "./components/streakInsight.js";
 
 function initApp() {
-  const dropdownButton = document.getElementById("dropdownButton");
-  const dropdownMenu = document.getElementById("dropdownMenu");
   const noteInputField = document.getElementById("notes");
   const habitForm = document.getElementById("habitForm");
   const activityList = document.querySelector(".habit__list");
 
-  setupDropdown(dropdownButton, dropdownMenu);
   setupActivitySelection(activityList);
   addHabitForm(habitForm, noteInputField, getSelectedActivity);
   renderTodoCount();
