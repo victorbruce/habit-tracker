@@ -1,0 +1,88 @@
+export function createHabitCard(habit) {
+  const habitCard = document.createElement("div");
+  habitCard.classList.add("history__card");
+
+  habitCard.innerHTML = `
+	<div class="history__card--content">
+      <h3 class="ellipsis-oneline">${habit.notes || "No notes"}</h3>
+      <div class="history__card--actions">
+        <span class="status-card large-screen">${
+          habit.status || "Not Started"
+        }</span>
+        <button class="pen-icon-btn">
+          <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-square-pen-icon lucide-square-pen pen-icon"
+                    >
+                      <path
+                        d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                      />
+                      <path
+                        d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"
+                      />
+                    </svg>
+        </button>
+        <button class="trash-icon-btn">
+        <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trash2-icon lucide-trash-2 trash-icon"
+                    >
+                      <path d="M3 6h18" />
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                      <line x1="10" x2="10" y1="11" y2="17" />
+                      <line x1="14" x2="14" y1="11" y2="17" />
+                    </svg>
+        </button>
+        <div class="dropdown">
+          <button id="dropdownButton" class="ellipsis-icon-btn">
+           <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-ellipsis-vertical-icon lucide-ellipsis-vertical ellipsis-icon"
+                      >
+                        <circle cx="12" cy="12" r="1" />
+                        <circle cx="12" cy="5" r="1" />
+                        <circle cx="12" cy="19" r="1" />
+                      </svg>
+          </button>
+          <ul id="dropdownMenu" class="dropdown-menu hidden">
+            <li class="dropdown-item">Todo</li>
+            <li class="dropdown-item">Progress</li>
+            <li class="dropdown-item">Completed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="status-card small-screen">${
+        habit.status || "Not Started"
+      }</span>
+    </div>
+	`;
+
+  return habitCard;
+}
