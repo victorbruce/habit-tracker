@@ -1,4 +1,4 @@
-import { sum } from '../js/main';
+import { sum } from '../src/main';
 
 describe('Test App', () => {
 	test('should add 2 and 3 and return 5', () => {
