@@ -1,6 +1,7 @@
 import { setupDropdown } from "./components/dropdown.js";
 import { addHabitForm } from "./components/addHabitForm.js";
 import { setupActivitySelection } from "./components/activitySelector.js";
+import { getSelectedActivity } from "./state/state.js";
 
 const dropdownButton = document.getElementById("dropdownButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
@@ -10,4 +11,4 @@ const activityList = document.querySelector(".habit__list");
 
 setupDropdown(dropdownButton, dropdownMenu);
 setupActivitySelection(activityList);
-addHabitForm(habitForm, noteInputField, "habit");
+addHabitForm(habitForm, noteInputField, getSelectedActivity);
