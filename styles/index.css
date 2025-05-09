@@ -382,6 +382,10 @@ body {
   color: #333;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Desktop Mode */
 @media screen and (min-width: 1024px) {
 }
