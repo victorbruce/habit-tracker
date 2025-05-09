@@ -1,5 +1,6 @@
 import { deleteHabitById } from "../utils/storage.js";
 import { populateHistory } from "./habitHistory.js";
+import { renderTodoCount } from "./todoInsight.js";
 
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
@@ -91,6 +92,7 @@ export function createHabitCard(habit) {
   deleteBtn.addEventListener("click", () => {
     deleteHabitById(habit.id);
     populateHistory();
+    renderTodoCount()
   });
 
   return habitCard;
