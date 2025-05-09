@@ -47,10 +47,14 @@
               <p>Legs</p>
             </li>
           </ul>
-          <form class="habit__form">
+          <form class="habit__form" id="habitForm">
             <div>
               <label for="notes">Add notes</label>
-              <input type="text" />
+              <input
+                type="text"
+                id="notes"
+                placeholder="how was today's session"
+              />
             </div>
             <button type="submit">Save</button>
           </form>
@@ -228,6 +232,6 @@
         </div>
       </section>
     </main>
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
