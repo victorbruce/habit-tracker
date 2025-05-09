@@ -1,5 +1,5 @@
 import { getHabits, saveHabits } from "../utils/storage.js";
-
+import { populateHistory } from "./habitHistory.js";
 
 function generateId() {
   return Date.now();
@@ -12,22 +12,24 @@ export function addHabitForm(formElement, inputElement, getSelectedActivity) {
     const activity = getSelectedActivity();
 
     if (!activity) {
-      alert('Please select an activity first');
+      alert("Please select an activity first");
       return;
     }
 
     const newHabit = {
       activity,
       notes: inputElement.value.trim(),
-      status: 'todo',
+      status: "todo",
       id: generateId(),
-      date: Date.now()
-    }
+      date: Date.now(),
+    };
     const habits = getHabits();
     habits.push(newHabit);
     saveHabits(habits);
 
+    populateHistory();
+
     formElement.reset();
-    alert('Habit saved!');
+    alert("Habit saved!");
   });
 }

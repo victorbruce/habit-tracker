@@ -374,6 +374,14 @@ body {
   }
 }
 
+.habits__empty {
+  margin: auto;
+  background-color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: #333;
+}
+
 /* Desktop Mode */
 @media screen and (min-width: 1024px) {
 }
