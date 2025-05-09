@@ -19,6 +19,7 @@ describe("Adding an Habit and saving to LocalStorage", () => {
 			<button type="submit">Save</button>
 		</form>
 		`;
+    
     localStorage.clear();
   });
 

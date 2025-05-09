@@ -5,3 +5,4 @@ export function saveHabits(habits) {
 export function getHabits() {
   return JSON.parse(localStorage.getItem("habits")) || [];
 }
+

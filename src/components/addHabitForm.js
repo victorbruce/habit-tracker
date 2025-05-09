@@ -1,3 +1,4 @@
+
 import { getHabits, saveHabits } from "../utils/storage.js";
 
 
@@ -29,5 +30,5 @@ export function addHabitForm(formElement, inputElement, getSelectedActivity) {
 
     formElement.reset();
     alert('Habit saved!');
-  });
-}
+}}
+                               }
