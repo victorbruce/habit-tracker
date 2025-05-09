@@ -3,6 +3,9 @@ import { addHabitForm } from "./components/addHabitForm.js";
 import { setupActivitySelection } from "./components/activitySelector.js";
 import { getSelectedActivity } from "./state/state.js";
 import { populateHistory } from "./components/habitHistory.js";
+import { renderTodoCount } from "./components/todoInsight.js";
+import { renderProgressCount } from "./components/progressInsight.js";
+import { renderCompletedCount } from "./components/completedinsight.js";
 
 function initApp() {
   const dropdownButton = document.getElementById("dropdownButton");
@@ -14,6 +17,9 @@ function initApp() {
   setupDropdown(dropdownButton, dropdownMenu);
   setupActivitySelection(activityList);
   addHabitForm(habitForm, noteInputField, getSelectedActivity);
+  renderTodoCount();
+  renderProgressCount();
+  renderCompletedCount();
   populateHistory();
 }
 
