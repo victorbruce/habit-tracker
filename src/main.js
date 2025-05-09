@@ -6,6 +6,7 @@ import { populateHistory } from "./components/habitHistory.js";
 import { renderTodoCount } from "./components/todoInsight.js";
 import { renderProgressCount } from "./components/progressInsight.js";
 import { renderCompletedCount } from "./components/completedinsight.js";
+import { renderStreak } from "./components/streakInsight.js";
 
 function initApp() {
   const dropdownButton = document.getElementById("dropdownButton");
@@ -20,6 +21,7 @@ function initApp() {
   renderTodoCount();
   renderProgressCount();
   renderCompletedCount();
+  renderStreak();
   populateHistory();
 }
 
