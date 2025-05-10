@@ -4,15 +4,24 @@ export function setupActivitySelection(container) {
   const items = container.querySelectorAll("li");
 
   items.forEach((li) => {
-    li.addEventListener("click", () => {
-      const activity = li.querySelector("p")?.textContent.trim();
+    const button = li.querySelector("button");
+    const label = li.querySelector("p");
+
+    if (!button || !label) return;
+
+    button.addEventListener("click", () => {
+      const activity = label.textContent.trim();
 
       if (activity) {
         setSelectedActivity(activity);
 
-        // highlit selected
-        items.forEach((i) => i.classList.remove("selected"));
-        li.classList.add("selected");
+        // remove 'selected' from all buttons
+        container
+          .querySelectorAll("button")
+          .forEach((btn) => btn.classList.remove("selected"));
+
+        // add to the clicked one
+        button.classList.add("selected");
       }
     });
   });
