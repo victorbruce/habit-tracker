@@ -91,9 +91,15 @@ export function createHabitCard(habit) {
 
   const deleteBtn = habitCard.querySelector(".trash-icon-btn");
   deleteBtn.addEventListener("click", () => {
-    deleteHabitById(habit.id);
-    populateHistory();
-    renderTodoCount();
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this habit?"
+    );
+
+    if (confirmed) {
+      deleteHabitById(habit.id);
+      populateHistory();
+      renderTodoCount();
+    }
   });
 
   // Setup dropdown interaction
