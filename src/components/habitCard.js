@@ -9,7 +9,8 @@ import { setupDropdown } from "./dropdown.js";
 import { renderProgressCount } from "./progressInsight.js";
 import { renderCompletedCount } from "./completedinsight.js";
 import { getStatusClass } from "../utils/statusStyles.js";
-getStatusClass;
+
+import { showToast } from "./toast.js";
 
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
@@ -125,6 +126,7 @@ export function createHabitCard(habit) {
   const dropdownMenu = habitCard.querySelector(".dropdown-menu");
   setupDropdown(dropdownButton, dropdownMenu);
 
+  // update habit status
   dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
     item.addEventListener("click", () => {
       const newStatus = item.dataset.status || "todo";
@@ -134,9 +136,11 @@ export function createHabitCard(habit) {
       renderTodoCount();
       renderProgressCount();
       renderCompletedCount();
+      showToast(`Status updated to ${newStatus}`, "success");
     });
   });
 
+  // edit habit
   const editBtn = habitCard.querySelector(".pen-icon-btn");
   editBtn.addEventListener("click", () => {
     const newNote = prompt("Edit note:", habit.notes || "");
