@@ -1,6 +1,7 @@
 import { getHabits, saveHabits } from "../utils/storage.js";
 import { resetActivitySelection } from "./activitySelector.js";
 import { populateHistory } from "./habitHistory.js";
+import { showToast } from "./toast.js";
 import { renderTodoCount } from "./todoInsight.js";
 
 function generateId() {
@@ -14,7 +15,7 @@ export function addHabitForm(formElement, inputElement, getSelectedActivity) {
     const activity = getSelectedActivity();
 
     if (!activity) {
-      alert("Please select an activity first");
+      showToast("Please select an activity first", "error");
       return;
     }
 
@@ -34,6 +35,6 @@ export function addHabitForm(formElement, inputElement, getSelectedActivity) {
     resetActivitySelection();
 
     formElement.reset();
-    alert("Habit saved!");
+    showToast("Habit saved!", "success");
   });
 }
