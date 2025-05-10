@@ -1,7 +1,9 @@
-import { deleteHabitById } from "../utils/storage.js";
+import { deleteHabitById, updateHabitStatus } from "../utils/storage.js";
 import { populateHistory } from "./habitHistory.js";
 import { renderTodoCount } from "./todoInsight.js";
 import { setupDropdown } from "./dropdown.js";
+import { renderProgressCount } from "./progressInsight.js";
+import { renderCompletedCount } from "./completedinsight.js";
 
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
@@ -75,9 +77,9 @@ export function createHabitCard(habit) {
                       </svg>
           </button>
           <ul id="dropdownMenu" class="dropdown-menu hidden">
-            <li class="dropdown-item">Todo</li>
-            <li class="dropdown-item">Progress</li>
-            <li class="dropdown-item">Completed</li>
+            <li class="dropdown-item" data-status="todo">Todo</li>
+            <li class="dropdown-item" data-status="progress">Progress</li>
+            <li class="dropdown-item" data-status="completed">Completed</li>
           </ul>
         </div>
       </div>
@@ -106,6 +108,18 @@ export function createHabitCard(habit) {
   const dropdownButton = habitCard.querySelector(".ellipsis-icon-btn");
   const dropdownMenu = habitCard.querySelector(".dropdown-menu");
   setupDropdown(dropdownButton, dropdownMenu);
+
+  dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const newStatus = item.dataset.status || "todo";
+      console.log("from data set", newStatus);
+      updateHabitStatus(habit.id, newStatus);
+      populateHistory(); // re-render the updated card
+      renderTodoCount();
+      renderProgressCount();
+      renderCompletedCount();
+    });
+  });
 
   return habitCard;
 }
