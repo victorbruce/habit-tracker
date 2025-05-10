@@ -1,5 +1,7 @@
 import { setSelectedActivity } from "../state/state.js";
 
+let selectedButton = null;
+
 export function setupActivitySelection(container) {
   const items = container.querySelectorAll("li");
 
@@ -15,14 +17,23 @@ export function setupActivitySelection(container) {
       if (activity) {
         setSelectedActivity(activity);
 
-        // remove 'selected' from all buttons
-        container
-          .querySelectorAll("button")
-          .forEach((btn) => btn.classList.remove("selected"));
+        // remove old highlight
+        if (selectedButton) {
+          selectedButton.classList.remove("selected");
+        }
 
-        // add to the clicked one
+        // set new selected button
+        selectedButton = button;
         button.classList.add("selected");
       }
     });
   });
+}
+
+export function resetActivitySelection() {
+  if (selectedButton) {
+    selectedButton.classList.remove("selected");
+    selectedButton = null;
+  }
+  setSelectedActivity(null);
 }

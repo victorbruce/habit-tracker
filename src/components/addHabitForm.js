@@ -1,4 +1,5 @@
 import { getHabits, saveHabits } from "../utils/storage.js";
+import { resetActivitySelection } from "./activitySelector.js";
 import { populateHistory } from "./habitHistory.js";
 import { renderTodoCount } from "./todoInsight.js";
 
@@ -30,6 +31,7 @@ export function addHabitForm(formElement, inputElement, getSelectedActivity) {
 
     populateHistory();
     renderTodoCount();
+    resetActivitySelection();
 
     formElement.reset();
     alert("Habit saved!");
