@@ -244,10 +244,26 @@ body {
   background-color: #eee;
 }
 
+.habit-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 2px;
+}
+
+.habit-card-activity {
+  padding: 4px 6px;
+  border-radius: 8px;
+  background-color: #afddff;
+  color: var(--text-color);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 .status-card {
   padding: 4px 6px;
   border-radius: 8px;
-  background-color: orange;
+  background-color: var(--pending);
   color: #fff;
   font-size: 12px;
   line-height: 1.4;
@@ -372,6 +388,18 @@ body {
   background-color: #fbf3c1 !important;
 }
 
+.habits__empty {
+  margin: auto;
+  background-color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
 /* Tablet Mode */
 @media screen and (min-width: 768px) {
   .app {
@@ -401,18 +429,15 @@ body {
     bottom: auto;
     left: 0;
   }
-}
 
-.habits__empty {
-  margin: auto;
-  background-color: #fff;
-  padding: 4rem 1rem;
-  text-align: center;
-  color: #333;
-}
-
-.hidden {
-  display: none;
+  .habit-card-activity {
+    font-size: 12px;
+    background-color: #afddff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    text-align: center;
+    align-self: flex-start;
+  }
 }
 
 /* Desktop Mode */

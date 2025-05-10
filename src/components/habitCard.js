@@ -13,7 +13,10 @@ export function createHabitCard(habit) {
 
   habitCard.innerHTML = `
 	<div class="history__card--content">
-      <h3 class="ellipsis-oneline">${habit.notes || "No notes"}</h3>
+      <div class="habit-card__content">
+      <h3 class="ellipsis-oneline">${habit.notes || "No notes has been recorded"}</h3>
+      <p class="habit-card-activity large-screen">${habit.activity || "No Activity"}</p>
+      </div>
       <div class="history__card--actions">
         <span class="${getStatusClass(habit.status)} large-screen">${
     habit.status || "Not Started"
@@ -90,6 +93,7 @@ export function createHabitCard(habit) {
       <span class="${getStatusClass(habit.status)} small-screen">${
     habit.status || "Not Started"
   }</span>
+   <p class="habit-card-activity small-screen">${habit.activity || "No Activity"}</p>
     </div>
 	`;
 
