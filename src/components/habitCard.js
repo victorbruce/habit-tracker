@@ -149,6 +149,7 @@ export function createHabitCard(habit) {
     if (newNote !== null) {
       updateHabitById(habit.id, { notes: newNote });
       populateHistory(); // Re-render UI
+      showToast(`Habit updated!`, "success");
     }
   });
 
