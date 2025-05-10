@@ -4,6 +4,8 @@ import { renderTodoCount } from "./todoInsight.js";
 import { setupDropdown } from "./dropdown.js";
 import { renderProgressCount } from "./progressInsight.js";
 import { renderCompletedCount } from "./completedinsight.js";
+import { getStatusClass } from "../utils/statusStyles.js";
+getStatusClass;
 
 export function createHabitCard(habit) {
   const habitCard = document.createElement("div");
@@ -13,9 +15,9 @@ export function createHabitCard(habit) {
 	<div class="history__card--content">
       <h3 class="ellipsis-oneline">${habit.notes || "No notes"}</h3>
       <div class="history__card--actions">
-        <span class="status-card large-screen">${
-          habit.status || "Not Started"
-        }</span>
+        <span class="${getStatusClass(habit.status)} large-screen">${
+    habit.status || "Not Started"
+  }</span>
         <button class="pen-icon-btn">
           <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -85,9 +87,9 @@ export function createHabitCard(habit) {
       </div>
     </div>
     <div>
-      <span class="status-card small-screen">${
-        habit.status || "Not Started"
-      }</span>
+      <span class="${getStatusClass(habit.status)} small-screen">${
+    habit.status || "Not Started"
+  }</span>
     </div>
 	`;
 
