@@ -15,10 +15,16 @@ export function deleteHabitById(id) {
 
 export function updateHabitStatus(id, newStatus) {
   const habits = getHabits().map((habit) => {
-    console.log('before update', habit)
     return habit.id === id ? { ...habit, status: newStatus } : habit;
   });
 
-  console.log('after update', habits)
   saveHabits(habits);
+}
+
+export function updateHabitById(id, updatedData) {
+  const habits = getHabits();
+  const updatedHabits = habits.map((habit) =>
+    habit.id === id ? { ...habit, ...updatedData } : habit
+  );
+  localStorage.setItem(HABIT_KEY, JSON.stringify(updatedHabits));
 }
