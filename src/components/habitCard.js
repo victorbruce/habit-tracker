@@ -1,4 +1,8 @@
-import { deleteHabitById, updateHabitStatus } from "../utils/storage.js";
+import {
+  deleteHabitById,
+  updateHabitStatus,
+  updateHabitById,
+} from "../utils/storage.js";
 import { populateHistory } from "./habitHistory.js";
 import { renderTodoCount } from "./todoInsight.js";
 import { setupDropdown } from "./dropdown.js";
@@ -14,8 +18,12 @@ export function createHabitCard(habit) {
   habitCard.innerHTML = `
 	<div class="history__card--content">
       <div class="habit-card__content">
-      <h3 class="ellipsis-oneline">${habit.notes || "No notes has been recorded"}</h3>
-      <p class="habit-card-activity large-screen">${habit.activity || "No Activity"}</p>
+      <h3 class="ellipsis-oneline">${
+        habit.notes || "No notes has been recorded"
+      }</h3>
+      <p class="habit-card-activity large-screen">${
+        habit.activity || "No Activity"
+      }</p>
       </div>
       <div class="history__card--actions">
         <span class="${getStatusClass(habit.status)} large-screen">${
@@ -93,7 +101,9 @@ export function createHabitCard(habit) {
       <span class="${getStatusClass(habit.status)} small-screen">${
     habit.status || "Not Started"
   }</span>
-   <p class="habit-card-activity small-screen">${habit.activity || "No Activity"}</p>
+   <p class="habit-card-activity small-screen">${
+     habit.activity || "No Activity"
+   }</p>
     </div>
 	`;
 
@@ -118,13 +128,22 @@ export function createHabitCard(habit) {
   dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
     item.addEventListener("click", () => {
       const newStatus = item.dataset.status || "todo";
-      console.log("from data set", newStatus);
+
       updateHabitStatus(habit.id, newStatus);
       populateHistory(); // re-render the updated card
       renderTodoCount();
       renderProgressCount();
       renderCompletedCount();
     });
+  });
+
+  const editBtn = habitCard.querySelector(".pen-icon-btn");
+  editBtn.addEventListener("click", () => {
+    const newNote = prompt("Edit note:", habit.notes || "");
+    if (newNote !== null) {
+      updateHabitById(habit.id, { notes: newNote });
+      populateHistory(); // Re-render UI
+    }
   });
 
   return habitCard;
