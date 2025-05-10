@@ -1,7 +1,7 @@
 import { getHabits } from "../utils/storage.js";
 
 export function getCompletedCount(habits = getHabits()) {
-  return habits.filter((habit) => habit.status.toLowerCase() === "completed")
+  return habits.filter((habit) => (habit.status || '').toLowerCase() === "completed")
     .length;
 }
 
