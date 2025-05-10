@@ -118,6 +118,8 @@ export function createHabitCard(habit) {
       deleteHabitById(habit.id);
       populateHistory();
       renderTodoCount();
+      renderProgressCount();
+      renderCompletedCount();
     }
   });
 
