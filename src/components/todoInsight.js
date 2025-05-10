@@ -1,7 +1,7 @@
 import { getHabits } from "../utils/storage.js";
 
 export function getTodoCount(habits = getHabits()) {
-  return habits.filter((habit) => habit.status.toLowerCase() === "todo").length;
+  return habits.filter((habit) => (habit.status || '').toLowerCase() === "todo").length;
 }
 
 export function renderTodoCount() {

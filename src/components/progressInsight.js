@@ -1,8 +1,9 @@
 import { getHabits } from "../utils/storage.js";
 
 export function getProgressCount(habits = getHabits()) {
-  return habits.filter((habit) => habit.status.toLowerCase() === "progress")
-    .length;
+  return habits.filter(
+    (habit) => (habit.status || "").toLowerCase() === "progress"
+  ).length;
 }
 
 export function renderProgressCount() {
